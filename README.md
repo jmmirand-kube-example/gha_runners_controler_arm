@@ -29,7 +29,7 @@ kubectl create secret generic controller-manager \
      --from-file=github_app_private_key={{PATH_TO_PRIVATE_KEY}}
 ```
 
-## actions-runner-controller**
+## actions-runner-controller
 
   * Descargamos el fichero con el manifest **Create GitHub Apps on your organization**
 
@@ -59,7 +59,7 @@ kubectl create secret generic controller-manager \
 kubectl get pod -n actions-runner-system
 ```
 
-  * Creamos un runner para probar que todo funciona correctamente.
+## Crear runner para probar que todo funciona correctamente.
 
 ``` yaml
 
@@ -71,7 +71,6 @@ spec:
   organization: jmmirand-kube-example
 
 ```
-
 
 ``` bash
  $ kubectl apply -f runner.yaml
