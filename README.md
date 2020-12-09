@@ -9,7 +9,7 @@ En este proyecto se revisa como adaptar [summerwind/actions-runner-controller](h
 
 Nada que añadir, se instala tal y como se explica en el proyecto.
 
-## preparar github app
+## preparar github app
 
   * Crear la aplicación github-apps
   * Las urls que nos piden añadimos la propia de la organización github.
