@@ -5,6 +5,10 @@ En este proyecto se revisa como adaptar [summerwind/actions-runner-controller](h
 
 # Notas instalación:
 
+Los pasos de instalación seguimos los del propio repositorio [summerwind/actions-runner-controller](https://github.com/summerwind/actions-runner-controller).  
+
+Destacar algunos problemas encontrados en ARM.
+
 ## Cert-Manager
 
 Nada que añadir, se instala tal y como se explica en el proyecto.
