@@ -5,11 +5,11 @@ En este proyecto se revisa como adaptar [summerwind/actions-runner-controller](h
 
 # Notas instalación:
 
-## cer-manager
+## Cert-Manager
 
 Nada que añadir, se instala tal y como se explica en el proyecto.
 
-## preparar github app
+## Githubapp
 
   * Crear la aplicación github-apps
   * Las urls que nos piden añadimos la propia de la organización github.
@@ -59,7 +59,7 @@ kubectl create secret generic controller-manager \
 kubectl get pod -n actions-runner-system
 ```
 
-## Crear runner para probar que todo funciona correctamente.
+## Crear runner para probar que todo funciona correctamente.
 
 ``` yaml
 
