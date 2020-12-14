@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  runner:
+    build: ../docker/
+    environment:
+      - ORGANIZATION=jmmirand-kube-example
+      - ACCESS_TOKEN=xxxxxxxxxxxxxxxxxxxxx
+      - LABES=docker-compose-runner

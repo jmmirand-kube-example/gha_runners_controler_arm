@@ -1,0 +1,64 @@
+---
+
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: gha-runner
+  labels:
+    name: gha-runner
+
+---
+#apiVersion: v1
+#kind: Pod
+#metadata:
+#  name: gha-runner
+#  namespace: gha-runner
+#spec:
+#  containers:
+#  - name: dockerd
+#    image: docker:19.03.14-dind
+#    env:
+#    - name: DOCKER_TLS_CERTDIR
+#      value: ""
+#    securityContext:
+#        privileged: true
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gharunner
+  namespace: gha-runner
+  labels:
+    app: gharunner
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gharunner
+  template:
+    metadata:
+      labels:
+        app: gharunner
+    spec:
+      containers:
+      - name: dockerd
+        image: docker:19.03.14-dind
+        env:
+        - name: DOCKER_TLS_CERTDIR
+          value: ""
+        securityContext:
+          privileged: true
+      - name: runner
+        image: jmmirand/gha-docker-self-hosted:latest
+        env:
+          - name: ORGANIZATION
+            value: "jmmirand-kube-example"
+          - name: ACCESS_TOKEN
+            value: "ea41fa221e7c8096cfbabb52cda5a9a8a3b6b036"
+          - name: LABELS
+            value: "docker-compose-runner"
+          - name: NAME
+            value: "runner-docker-compose"
+          - name: DOCKER_HOST
+            value: "tcp://localhost:2375"
