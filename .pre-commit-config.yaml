@@ -19,6 +19,7 @@ repos:
     stages: [commit]
     exclude: .*\.tfvars$ # terraform fmt separates everything with blank lines leaving a trailing line at the end
   - id: check-yaml
+    args: [--allow-multiple-documents]
     stages: [commit]
 
 - repo: https://github.com/pryorda/dockerfilelint-precommit-hooks
