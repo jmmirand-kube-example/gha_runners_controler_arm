@@ -1,29 +1,3 @@
----
-
-kind: Namespace
-apiVersion: v1
-metadata:
-  name: gha-runner
-  labels:
-    name: gha-runner
-
----
-#apiVersion: v1
-#kind: Pod
-#metadata:
-#  name: gha-runner
-#  namespace: gha-runner
-#spec:
-#  containers:
-#  - name: dockerd
-#    image: docker:19.03.14-dind
-#    env:
-#    - name: DOCKER_TLS_CERTDIR
-#      value: ""
-#    securityContext:
-#        privileged: true
----
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
