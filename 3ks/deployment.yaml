@@ -32,7 +32,7 @@ metadata:
   labels:
     app: gharunner
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: gharunner
@@ -55,9 +55,9 @@ spec:
           - name: ORGANIZATION
             value: "jmmirand-kube-example"
           - name: ACCESS_TOKEN
-            value: "ea41fa221e7c8096cfbabb52cda5a9a8a3b6b036"
+            value: "fbaa5ca262495eebd0219c98152bb828492432aa"
           - name: LABELS
-            value: "docker-compose-runner"
+            value: "k3s-runner"
           - name: NAME
             value: "runner-docker-compose"
           - name: DOCKER_HOST
