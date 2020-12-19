@@ -7,6 +7,8 @@ ARG ARQ_RUNNER="linux-x64"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN env
+
 # update the base packages and add a non-sudo user
 RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
 
