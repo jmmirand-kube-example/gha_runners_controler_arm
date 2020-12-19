@@ -5,6 +5,8 @@ FROM ubuntu:20.04
 ARG RUNNER_VERSION="2.275.1"
 ARG ARQ_RUNNER="linux-x64"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # update the base packages and add a non-sudo user
 RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
 
