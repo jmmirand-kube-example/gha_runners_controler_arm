@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 
 # set the github runner version
-ARG RUNNER_VERSION="2.275.1"
+ARG RUNNER_VERSION="2.275.0"
 ARG ARQ_RUNNER="linux-x64"
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -14,10 +14,12 @@ RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
-RUN apt-get install -y curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev
+RUN apt-get install -y curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev git curl
+
 
 # cd into the user directory, download and unzip the github actions runner
-RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
+RUN export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions/runner/releases/latest" | grep "tag_name" | sed -E 's/.*"v([^"]+)".*/\1/') \
+    cd /home/docker && mkdir actions-runner && cd actions-runner \
     && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz \
     && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz
 
