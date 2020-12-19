@@ -2,8 +2,8 @@
 FROM ubuntu:20.04
 
 # set the github runner version
-ARG RUNNER_VERSION="2.263.0"
-ARG ARQ_RUNNER="linux-arm64"
+ARG RUNNER_VERSION="2.275.1"
+ARG ARQ_RUNNER="linux-x64"
 
 # update the base packages and add a non-sudo user
 RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
