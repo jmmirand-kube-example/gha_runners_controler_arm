@@ -11,5 +11,6 @@
 # GHA Runners en Raspbery
 
   * [docker-runner.md](doc/docker-runner.md
+  * [docker-compose](./doc/docker-compose-runner.md)
 
 ## actions-runner-controller-arm
