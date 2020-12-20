@@ -18,7 +18,7 @@ En este proyecto se revisa como adaptar [summerwind/actions-runner-controller](h
 Midificaremos la instalación para adaptar Github Actions Controller a la arquitectura ARM64. Nos permitirá ejecutar Acciones en nuestro cluster Raspberry K3s.
 
 
-# Instalación:
+# Instalación Controller en k3s
 
 Los pasos de instalación seguimos los del propio repositorio [summerwind/actions-runner-controller](https://github.com/summerwind/actions-runner-controller).  
 
