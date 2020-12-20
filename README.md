@@ -11,10 +11,12 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# jmms_gha_runners_controler_arm
-Github Actions Controler en ARM64 . Nos permitirá ejecutar Acciones en nuestro cluster K3s en Rasberry
+#  Objetivo
 
 En este proyecto se revisa como adaptar [summerwind/actions-runner-controller](https://github.com/summerwind/actions-runner-controller) para poder ejecutar acciones en un cluster Raspberry donde tenemos montado k3s.
+
+Midificaremos la instalación para adaptar Github Actions Controller a la arquitectura ARM64. Nos permitirá ejecutar Acciones en nuestro cluster Raspberry K3s.
+
 
 # Notas instalación:
 
