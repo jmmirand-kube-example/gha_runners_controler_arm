@@ -1,3 +1,16 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [jmms_gha_runners_controler_arm](#jmms_gha_runners_controler_arm)
+- [Notas instalación:](#notas-instalaci%C3%B3n)
+  - [Cert-Manager](#cert-manager)
+  - [Githubapp](#githubapp)
+  - [actions-runner-controller](#actions-runner-controller)
+  - [Crear runner para probar que todo funciona correctamente.](#crear-runner-para-probar-que-todo-funciona-correctamente)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # jmms_gha_runners_controler_arm
 Github Actions Controler en ARM64 . Nos permitirá ejecutar Acciones en nuestro cluster K3s en Rasberry
 
