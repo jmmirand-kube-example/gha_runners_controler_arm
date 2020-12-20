@@ -3,7 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Objetivo](#objetivo)
-- [Notas instalación:](#notas-instalaci%C3%B3n)
+- [Instalación Controller en k3s](#instalaci%C3%B3n-controller-en-k3s)
   - [Cert-Manager](#cert-manager)
   - [Githubapp](#githubapp)
   - [actions-runner-controller](#actions-runner-controller)
@@ -94,5 +94,5 @@ spec:
 ``` bash
  $ kubectl apply -f runner.yaml
  $ kubectl get runners
- $ kubectl get pods 
+ $ kubectl get pods
 ```

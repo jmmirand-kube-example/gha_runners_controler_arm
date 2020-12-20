@@ -3,7 +3,6 @@
 **Table of Contents**
 
 - [GHA Runners en Raspbery](#gha-runners-en-raspbery)
-  - [actions-runner-controller-arm](#actions-runner-controller-arm)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -13,4 +12,4 @@
   * [docker-runner.md](./doc/docker-runner.md
   * [docker-compose](./doc/docker-compose-runner.md)
   * [docker-swarm](./doc/docker-swarm-runners.md)
-## actions-runner-controller-arm
+  * [actions-runner-controller](doc/actions-runner-controller-arm.md)
