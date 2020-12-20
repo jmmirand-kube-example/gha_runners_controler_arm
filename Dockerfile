@@ -8,12 +8,14 @@ ARG ARQ_RUNNER="linux-x64"
 ENV DEBIAN_FRONTEND=noninteractive
 
 
-# update the base packages and add a non-sudo user
+# add a non-sudo user ( docker)
+# update the base packages
 # install python and the packages the your code depends on along with jq so we can parse JSON
-# add additional packages as necessary
-RUN apt-get update -y \
+# add additional packages as necessary 
+RUN useradd -m docker \
+   && apt-get update -y \
    && apt-get install -y --no-install-recommends curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev git curl \
-   && useradd -m docker \
+
    && rm -rf /var/lib/apt/lists/*
 
 
