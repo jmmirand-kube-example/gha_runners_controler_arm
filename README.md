@@ -2,7 +2,7 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [jmms_gha_runners_controler_arm](#jmms_gha_runners_controler_arm)
+- [Objetivo](#objetivo)
 - [Notas instalación:](#notas-instalaci%C3%B3n)
   - [Cert-Manager](#cert-manager)
   - [Githubapp](#githubapp)
