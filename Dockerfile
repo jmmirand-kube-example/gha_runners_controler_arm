@@ -11,7 +11,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # add a non-sudo user ( docker)
 # update the base packages
 # install python and the packages the your code depends on along with jq so we can parse JSON
-# add additional packages as necessary 
+# add additional packages as necessary
 RUN useradd -m docker \
    && apt-get update -y \
    && apt-get install -y --no-install-recommends curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev git curl \
