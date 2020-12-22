@@ -26,8 +26,12 @@ repos:
   hooks:
   - id: doctoc
 - repo: https://github.com/jmmirand/my-own-precommit
-  rev: v1.0.6
+  rev: v1.0.8
   hooks:
   - id: md-toc
-    args: ["file1" , "file2"]
+    args:
+      - ./doc/actions-runner-controller-arm.md
+      - ./doc/docker-compose-runner.md
+      - ./doc/docker-runner.md
+      - ./doc/docker-swarm-runners.md
     pass_filenames: false
