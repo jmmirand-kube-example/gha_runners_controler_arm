@@ -25,3 +25,11 @@ repos:
   rev: v2.0.0
   hooks:
   - id: doctoc
+- repo: https://github.com/jmmirand/my-own-precommit
+  rev: v1.0.6
+  hooks:
+  - id: md-toc
+    args:
+      - ./doc/test1.md
+      - ./doc/test2.md
+    pass_filenames: false
