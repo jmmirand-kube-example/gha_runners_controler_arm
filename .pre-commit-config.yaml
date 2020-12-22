@@ -29,7 +29,5 @@ repos:
   rev: v1.0.6
   hooks:
   - id: md-toc
-    args:
-      - ./doc/test1.md
-      - ./doc/test2.md
+    args: ["file1" , "file2"]
     pass_filenames: false
