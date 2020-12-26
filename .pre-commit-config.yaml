@@ -25,13 +25,7 @@ repos:
   rev: v2.0.0
   hooks:
   - id: doctoc
-- repo: https://github.com/jmmirand/my-own-precommit
-  rev: v1.0.8
-  hooks:
-  - id: md-toc
-    args:
-      - ./doc/actions-runner-controller-arm.md
-      - ./doc/docker-compose-runner.md
-      - ./doc/docker-runner.md
-      - ./doc/docker-swarm-runners.md
-    pass_filenames: false
+#- repo: https://github.com/jmmirand/my-own-precommit
+#  rev: v1.0.12
+#  hooks:
+#  - id: jmms-gh-md-toc

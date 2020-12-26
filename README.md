@@ -1,15 +1,11 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+Introduccion
 
-- [GHA Runners en Raspbery](#gha-runners-en-raspbery)
+<!--ts-->
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+Parsing local markdown file requires access to github API
+Error: You exceeded the hourly limit. See: https://developer.github.com/v3/#rate-limiting
+or place GitHub auth token here: /Users/jmmirand/MyTools/token.txt
 
+<!-- Added by: jmmirand, at: Sat Dec 26 18:56:19 CET 2020 -->
 
-# GHA Runners en Raspbery
-
-  * [docker-runner.md](./doc/docker-runner.md
-  * [docker-compose](./doc/docker-compose-runner.md)
-  * [docker-swarm](./doc/docker-swarm-runners.md)
-  * [actions-runner-controller](doc/actions-runner-controller-arm.md)
+<!--te-->
