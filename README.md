@@ -1,4 +1,22 @@
-Introduccion
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Github Actions Runner para Raspberry](#github-actions-runner-para-raspberry)
+  - [Objetivo](#objetivo)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+# Github Actions Runner para Raspberry
+
+##  Objetivo
+
+Estudiar como podemos sacar provecho a nuestras Raspberrys en el proceso de CI
+/CD con Github Actions de Github.com.
+
+Buscar iniciativas y artículos disponibles para cuando merece la pena usar
+nuestra propia infraestructura.
+
 
 <!--ts-->
 
@@ -25,6 +43,6 @@ Introduccion
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Sun Dec 27 08:29:38 CET 2020 -->
+<!-- Added by: jmmirand, at: Sun Dec 27 08:30:26 CET 2020 -->
 
 <!--te-->
