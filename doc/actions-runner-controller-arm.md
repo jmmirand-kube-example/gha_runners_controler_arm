@@ -2,33 +2,33 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Objetivo](#objetivo)
-- [Instalación Controller en k3s](#instalaci%C3%B3n-controller-en-k3s)
+- [Uso de actions-runner-controller](#uso-de-actions-runner-controller)
+- [Instalación del Actions Controller en k3s](#instalaci%C3%B3n-del-actions-controller-en-k3s)
   - [Cert-Manager](#cert-manager)
   - [Githubapp](#githubapp)
-  - [actions-runner-controller](#actions-runner-controller)
-  - [Crear runner para probar que todo funciona correctamente.](#crear-runner-para-probar-que-todo-funciona-correctamente)
+  - [Modificaciones a realizar en el proyecto actions-runner-controller](#modificaciones-a-realizar-en-el-proyecto-actions-runner-controller)
+  - [Test del Runner](#test-del-runner)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+## Uso de actions-runner-controller
 
-#  Objetivo
-
-En este proyecto se revisa como adaptar [summerwind/actions-runner-controller](https://github.com/summerwind/actions-runner-controller) para poder ejecutar acciones en un cluster Raspberry donde tenemos montado k3s.
+Revisar el proyecto [summerwind/actions-runner-controller](https://github.com/summerwind/actions-runner-controller) para poder ejecutar acciones en un cluster Raspberry donde tenemos montado k3s.
 
 Midificaremos la instalación para adaptar Github Actions Controller a la arquitectura ARM64. Nos permitirá ejecutar Acciones en nuestro cluster Raspberry K3s.
 
 
-# Instalación Controller en k3s
+
+## Instalación del Actions Controller en k3s
 
 Los pasos de instalación seguimos los del propio repositorio [summerwind/actions-runner-controller](https://github.com/summerwind/actions-runner-controller).  
 
 Destacar algunos problemas encontrados en ARM.
 
-## Cert-Manager
+### Cert-Manager
 
 Nada que añadir, se instala tal y como se explica en el proyecto.
 
-## Githubapp
+### Githubapp
 
   * Crear la aplicación github-apps
   * Las urls que nos piden añadimos la propia de la organización github.
@@ -48,7 +48,7 @@ kubectl create secret generic controller-manager \
      --from-file=github_app_private_key={{PATH_TO_PRIVATE_KEY}}
 ```
 
-## actions-runner-controller
+### Modificaciones a realizar en el proyecto actions-runner-controller
 
   * Descargamos el fichero con el manifest **Create GitHub Apps on your organization**
 
@@ -78,7 +78,7 @@ kubectl create secret generic controller-manager \
 kubectl get pod -n actions-runner-system
 ```
 
-## Crear runner para probar que todo funciona correctamente.
+### Test del Runner
 
 ``` yaml
 
