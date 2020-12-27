@@ -23,6 +23,7 @@ repos:
     stages: [commit]
 - repo: https://github.com/thlorenz/doctoc
   rev: v2.0.0
+  exclude: README.md
   hooks:
   - id: doctoc
 #- repo: https://github.com/jmmirand/my-own-precommit

@@ -2,15 +2,15 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Uso de actions-runner-controller](#uso-de-actions-runner-controller)
-- [Instalación del Actions Controller en k3s](#instalaci%C3%B3n-del-actions-controller-en-k3s)
-  - [Cert-Manager](#cert-manager)
-  - [Githubapp](#githubapp)
-  - [Modificaciones a realizar en el proyecto actions-runner-controller](#modificaciones-a-realizar-en-el-proyecto-actions-runner-controller)
-  - [Test del Runner](#test-del-runner)
+- [Controlador de Runner en Kubernetes ( actions-runner-controller )](#controlador-de-runner-en-kubernetes--actions-runner-controller-)
+  - [Instalación del Actions Controller en k3s](#instalaci%C3%B3n-del-actions-controller-en-k3s)
+    - [Cert-Manager](#cert-manager)
+    - [Githubapp](#githubapp)
+    - [Modificaciones a realizar en el proyecto actions-runner-controller](#modificaciones-a-realizar-en-el-proyecto-actions-runner-controller)
+    - [Test del Runner](#test-del-runner)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-## Uso de actions-runner-controller
+# Controlador de Runner en Kubernetes ( actions-runner-controller )
 
 Revisar el proyecto [summerwind/actions-runner-controller](https://github.com/summerwind/actions-runner-controller) para poder ejecutar acciones en un cluster Raspberry donde tenemos montado k3s.
 
