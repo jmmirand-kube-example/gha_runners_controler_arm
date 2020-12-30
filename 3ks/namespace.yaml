@@ -1,0 +1,7 @@
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: gha-runner
+  labels:
+    name: gha-runner

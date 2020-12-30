@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Docker Swarm runner ( Escalabilidad Vertical )](#docker-swarm-runner--escalabilidad-vertical-)
+  - [Instalar el cluster](#instalar-el-cluster)
+  - [Borrar los Runners](#borrar-los-runners)
+- [Swarm y Contenedores Privilegiados](#swarm-y-contenedores-privilegiados)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Docker Swarm runner ( Escalabilidad Vertical )
 
 ### Instalar el cluster
