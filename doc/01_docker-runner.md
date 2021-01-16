@@ -2,47 +2,84 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Docker Github Runners](#docker-github-runners)
-  - [Crear Imagen Docker para el Runner](#crear-imagen-docker-para-el-runner)
+- [Github Runners con Docker](#github-runners-con-docker)
+  - [Crear DockerFile y construción de la imágen.](#crear-dockerfile-y-construci%C3%B3n-de-la-im%C3%A1gen)
+    - [Instalación Utilidades](#instalaci%C3%B3n-utilidades)
   - [Probar Docker Runners](#probar-docker-runners)
     - [Arrancar runner con cliente docker instalado.](#arrancar-runner-con-cliente-docker-instalado)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Docker Github Runners
+# Github Runners con Docker
 
-Docker Runner nos permitirá ejecutar acciones self-hosted desde nuestro propia infraestructura.
-En mi caso está orientado la la ejecución en un entorno ARM.
-
-
-## Crear Imagen Docker para el Runner
+En un contenedor Docker podemos instalar y registrar el runner. Este cuando se arranque
+se registrará en github disponibilizado para los worlflows.
 
 
-Construimos la imagen Docker del agente que vamos a conectar a nuestra organización Github.
+## Crear DockerFile y construción de la imágen.
 
-```
+Para la construcción de la imagen Docker tendremos en cuenta
+
+### Basar la imagen docker en ubuntu.
+
+Basamos nuestra imagen Docker en ubuntu porque en Raspberry el SO esta también está
+basado en linux y en mi caso está basado en ubuntu. También tendremos que tener
+en cuenta que la construcción de la imagen debe ser en Arquitectura ARM.
+
+``` bash
 # Dockerfile
 # base
-FROM ubuntu:18.04
+FROM ubuntu:20.04
+```
 
-# set the github runner version
-ARG RUNNER_VERSION="2.263.0"
+### Instalación Utilidades
 
-# update the base packages and add a non-sudo user
-RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
+Hay utilidades que se asume que tienen que debe estar instaladas en el Runner como por ejemplo git y python.
+También por optimización se puede instalar utilidades que se van a usar muy frecuentemente y así mejorar
+los tiempos de respuesta de las acciones.
 
+``` bash
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
+RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev
+```
 
-# cd into the user directory, download and unzip the github actions runner
-RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
-    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-arm64-${RUNNER_VERSION}.tar.gz \
-    && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
+### Instalación Docker
 
+La instalación de docker es recomendable si queremos queremos realizar trabajos
+con docker (construcción de imágenes, push y ejecución de containers).
+
+``` bash
 # install some additional dependencies
-RUN chown -R docker ~docker && /home/docker/actions-runner/bin/installdependencies.sh
+# Install docker client.
+RUN useradd -m docker
+RUN curl -sSL https://get.docker.com | sh
+RUN usermod -aG docker docker
+RUN chown -R docker ~docker &&
+```
 
+
+
+### Instalación del agente github
+
+Se calcula la última versión del agente y se instala.
+
+``` bash
+# cd into the user directory, download and unzip the github actions runner
+RUN export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions/runner/releases/latest" | grep "tag_name" | sed -E 's/.*"v([^"]+)".*/\1/') \
+    && cd /home/docker && mkdir actions-runner && cd actions-runner \
+    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz \
+    && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz
+
+```
+
+### Copiar ENTRYPOINT
+
+Preparamos el entrypoint encapsulado en start.sh y añadimos el usuario por defecto
+a Docker.
+
+``` bash
 # copy over the start.sh script
 COPY start.sh start.sh
 
@@ -58,10 +95,15 @@ ENTRYPOINT ["./start.sh"]
 
 ```
 
+## Build de la imagen Docker
+
+Para la construcción usamos como argumento la versión que quiero instalar.
 
 ``` bash
 $ docker build -t jmmirand/gha-docker-self-hosted --build-arg RUNNER_VERSION=2.274.2 .
 ```
+
+## start.sh entrypoint arranque Docker
 
 
 Fichero arranque.
