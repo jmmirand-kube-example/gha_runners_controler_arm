@@ -9,9 +9,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
-
-
 # Docker Github Runners
 
 Docker Runner nos permitirá ejecutar acciones self-hosted desde nuestro propia infraestructura.

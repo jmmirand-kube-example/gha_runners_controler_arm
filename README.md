@@ -12,6 +12,7 @@
 Se estudia como sacar provecho a nuestras Raspberrys con Github Actions
 de Github.com.
 
+
 Repasaremos docuemntación oficial, iniciativas y artículos publicados que nos
 ayuden a integrar y entender como funciona Github Actions.
 
@@ -19,8 +20,6 @@ ayuden a integrar y entender como funciona Github Actions.
 
 # Tabla de Contenidos
 <!--ts-->
-
-
 
    * [Ejecutores auto hospedados.](./doc/00_ejecutores-auto-hospedados.md#ejecutores-auto-hospedados)
 
@@ -48,5 +47,6 @@ ayuden a integrar y entender como funciona Github Actions.
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
 <!-- Added by: jmmirand, at: date +%d-%m-%Y-->
+
 
 <!--te-->
