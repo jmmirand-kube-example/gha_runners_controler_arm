@@ -8,16 +8,17 @@
 
 # Ejecutores auto hospedados.
 
-Github nos permite ejecutar flujos de trabajo con Github Actions. Los nodos que
-ejecutan los trabajos pueden estar en la nube y nos lo proporciona el propio
-github o bien pueden estar en una infraestructura propia los que
-llamaremos **self-hosted**.
+Github nos permite ejecutar flujos de trabajo con Github Actions. Los pasos los
+ejecuta lo que llaman runners ( equivalentes a esclavos en Jenkins)
 
-Los ejecutores en la nube no son arquitectura ARM con lo cual todo lo que haga
-está basado en x86 tanto para mac/windows/linux.
+Los runners pueden ser gestionados por el propio gihtub. O bien podemos tenerlo
+en nuestra infraestructura github los denomina runners **self-hosted**.
 
-Lo que si que tiene Actions docker ( **dockerx** ) que permite la construcción
-de imágenes en diversas arquitecturas.  Esto permite la ejecución en Raspberry.
+Si queremos trabajar con Raspberry, debemos trabajar con runners self-hosted,
+github proporciona runner en arquitecturas mac/windows/linux pero no ARM.
+
+Existe la capacidad de realizar contenedores con arq=ARM para el mundo raspberry
+usando **dockerx** usando los runners del propio github.
 
 Nosotros nos centraremos en dar la posibilidad crear flujos de trabajo
 que puedan ejecutar 100% en dispositivos ARM.
