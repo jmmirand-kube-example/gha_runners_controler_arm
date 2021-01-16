@@ -19,8 +19,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 - [Tabla de Contenidos](#tabla-de-contenidos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Tabla de Contenidos
 <!--ts-->
 
    * [Ejecutores auto hospedados.](./doc/00_ejecutores-auto-hospedados.md#ejecutores-auto-hospedados)
