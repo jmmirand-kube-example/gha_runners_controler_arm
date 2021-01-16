@@ -1,3 +1,17 @@
+
+GitHub Actions permite crear flujos de trabajo (workflows) que se pueden utilizar para compilar, probar y desplegar código, dando la posibilidad de crear flujos de integración y despliegue continuo dentro del propio repositorio de git.
+
+Los flujos de trabajo tienen que contener al menos un job. Estos incluyen una serie de pasos que ejecutan tareas individuales que pueden ser acciones o comandos. Un flujo de trabajo puede comenzar por distintos eventos que suceden dentro de GitHub, como un push al repositorio o un pull request.
+
+Los jobs se ejecutan en un VM o Host que llevan instalado un agente llamado runners, Github proporciona integrada en su solución un cojunto de Runners dependiendo de la VM o Host sea Windows, MacOs y Linux.
+
+En este artículo se estudia como sacar provecho a nuestras Raspberrys instalando runners para ser usados
+desde github actions. Repasaremos la documentación oficial, iniciativas y artículos públicos que nos ayudarán a entender como funciona.
+
+
+
+
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -5,18 +19,6 @@
 - [Tabla de Contenidos](#tabla-de-contenidos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-GitHub Actions permite crear flujos de trabajo (workflows) que se pueden utilizar para compilar, probar y desplegar código, dando la posibilidad de crear flujos de integración y despliegue continuo dentro del propio repositorio de git. Los flujos de trabajo tienen que contener al menos un job
-
-Los flujos de trabajo tienen que contener al menos un job. Estos incluyen una serie de pasos que ejecutan tareas individuales que pueden ser acciones o comandos. Un flujo de trabajo puede comenzar por distintos eventos que suceden dentro de GitHub, como un push al repositorio o un pull request.
-
-Los jobs se ejecutan en una infraestructura llamada runners. Estos pueden ser de varios tipos Windows, MacOs y Linux. Esos a su vez los puede proporcionar Github o bien los podemos tener alojado en infraestructura local.
-
-En este artículo se estudia como sacar provecho a nuestras Raspberrys creando runners que puedan ser usados
-desde github actions. Repasaremos documentación oficial, iniciativas y artículos publicados que nos
-ayuden a integrar y entender como funciona.
-
-
 
 # Tabla de Contenidos
 <!--ts-->
