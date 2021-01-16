@@ -26,7 +26,7 @@ repos:
   exclude: README.md
   hooks:
   - id: doctoc
-#- repo: https://github.com/jmmirand/my-own-precommit
-#  rev: v1.0.12
-#  hooks:
-#  - id: jmms-gh-md-toc
+- repo: https://github.com/jmmirand/my-own-precommit
+  rev: v1.0.22
+  hooks:
+  - id: jmms-gh-md-toc
