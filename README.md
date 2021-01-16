@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Github Actions para las Raspberrys](#github-actions-para-las-raspberrys)
+- [Tabla de Contenidos](#tabla-de-contenidos)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -11,18 +12,23 @@
 Se estudia como sacar provecho a nuestras Raspberrys con Github Actions
 de Github.com.
 
-Para ello busco iniciativas y artículos disponibles que nos puedan ayudar a
-integrar y entender como funciona Github Actions.
+
+Repasaremos docuemntación oficial, iniciativas y artículos publicados que nos
+ayuden a integrar y entender como funciona Github Actions.
 
 
+
+# Tabla de Contenidos
 <!--ts-->
 
-
+   * [Ejecutores auto hospedados.](./doc/00_ejecutores-auto-hospedados.md#ejecutores-auto-hospedados)
 
    * [Docker Github Runners](./doc/01_docker-runner.md#docker-github-runners)
       * [Crear Imagen Docker para el Runner](./doc/01_docker-runner.md#crear-imagen-docker-para-el-runner)
       * [Probar Docker Runners](./doc/01_docker-runner.md#probar-docker-runners)
          * [Arrancar runner con cliente docker instalado.](./doc/01_docker-runner.md#arrancar-runner-con-cliente-docker-instalado)
+
+   * [Referencias](./doc/99_referencias.md#referencias)
 
    * [Controlador de Runner en Kubernetes ( actions-runner-controller )](./doc/actions-runner-controller-arm.md#controlador-de-runner-en-kubernetes--actions-runner-controller-)
       * [Instalación del Actions Controller en k3s](./doc/actions-runner-controller-arm.md#instalación-del-actions-controller-en-k3s)
@@ -40,6 +46,7 @@ integrar y entender como funciona Github Actions.
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Sun Dec 27 08:49:05 CET 2020 -->
+<!-- Added by: jmmirand, at: date +%d-%m-%Y-->
+
 
 <!--te-->
