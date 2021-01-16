@@ -4,7 +4,13 @@
 
 - [Github Runners con Docker](#github-runners-con-docker)
   - [Crear DockerFile y construción de la imágen.](#crear-dockerfile-y-construci%C3%B3n-de-la-im%C3%A1gen)
+    - [Basar la imagen docker en ubuntu](#basar-la-imagen-docker-en-ubuntu)
     - [Instalación Utilidades](#instalaci%C3%B3n-utilidades)
+    - [Instalación Docker Deamon](#instalaci%C3%B3n-docker-deamon)
+    - [Instalación del agente github](#instalaci%C3%B3n-del-agente-github)
+    - [Copiar ENTRYPOINT](#copiar-entrypoint)
+  - [Build de la imagen Docker](#build-de-la-imagen-docker)
+  - [Start.sh entrypoint arranque Docker](#startsh-entrypoint-arranque-docker)
   - [Probar Docker Runners](#probar-docker-runners)
     - [Arrancar runner con cliente docker instalado.](#arrancar-runner-con-cliente-docker-instalado)
 
@@ -20,8 +26,7 @@ se registrará en github disponibilizado para los worlflows.
 
 Para la construcción de la imagen Docker tendremos en cuenta
 
-### Basar la imagen docker en ubuntu.
-
+### Basar la imagen docker en ubuntu
 Basamos nuestra imagen Docker en ubuntu porque en Raspberry el SO esta también está
 basado en linux y en mi caso está basado en ubuntu. También tendremos que tener
 en cuenta que la construcción de la imagen debe ser en Arquitectura ARM.
@@ -45,7 +50,7 @@ RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y curl jq build-essential libssl-dev libffi-dev python3 python3-venv python3-dev
 ```
 
-### Instalación Docker
+### Instalación Docker Deamon
 
 La instalación de docker es recomendable si queremos queremos realizar trabajos
 con docker (construcción de imágenes, push y ejecución de containers).
@@ -60,8 +65,7 @@ RUN chown -R docker ~docker &&
 ```
 
 
-
-### Instalación del agente github
+### Instalación del agente github
 
 Se calcula la última versión del agente y se instala.
 
@@ -74,7 +78,7 @@ RUN export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions
 
 ```
 
-### Copiar ENTRYPOINT
+### Copiar ENTRYPOINT
 
 Preparamos el entrypoint encapsulado en start.sh y añadimos el usuario por defecto
 a Docker.
@@ -95,7 +99,7 @@ ENTRYPOINT ["./start.sh"]
 
 ```
 
-## Build de la imagen Docker
+## Build de la imagen Docker
 
 Para la construcción usamos como argumento la versión que quiero instalar.
 
@@ -103,7 +107,7 @@ Para la construcción usamos como argumento la versión que quiero instalar.
 $ docker build -t jmmirand/gha-docker-self-hosted --build-arg RUNNER_VERSION=2.274.2 .
 ```
 
-## start.sh entrypoint arranque Docker
+## Start.sh entrypoint arranque Docker
 
 
 Fichero arranque.

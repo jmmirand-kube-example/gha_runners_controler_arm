@@ -21,13 +21,20 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <!--ts-->
 
 
 
    * [Github Runners con Docker](./doc/01_docker-runner.md#github-runners-con-docker)
       * [Crear DockerFile y construción de la imágen.](./doc/01_docker-runner.md#crear-dockerfile-y-construción-de-la-imágen)
+         * [Basar la imagen docker en ubuntu](./doc/01_docker-runner.md#basar-la-imagen-docker-en-ubuntu)
          * [Instalación Utilidades](./doc/01_docker-runner.md#instalación-utilidades)
+         * [Instalación Docker Deamon](./doc/01_docker-runner.md#instalación-docker-deamon)
+         * [Instalación del agente github](./doc/01_docker-runner.md#instalación-del-agente-github)
+         * [Copiar ENTRYPOINT](./doc/01_docker-runner.md#copiar-entrypoint)
+      * [Build de la imagen Docker](./doc/01_docker-runner.md#build-de-la-imagen-docker)
+      * [Start.sh entrypoint arranque Docker](./doc/01_docker-runner.md#startsh-entrypoint-arranque-docker)
       * [Probar Docker Runners](./doc/01_docker-runner.md#probar-docker-runners)
          * [Arrancar runner con cliente docker instalado.](./doc/01_docker-runner.md#arrancar-runner-con-cliente-docker-instalado)
 
@@ -49,6 +56,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Sat Jan 16 16:53:03 CET 2021 -->
+<!-- Added by: jmmirand, at: Sat Jan 16 16:59:10 CET 2021 -->
 
 <!--te-->
