@@ -25,8 +25,9 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 
 
-   * [Docker Github Runners](./doc/01_docker-runner.md#docker-github-runners)
-      * [Crear Imagen Docker para el Runner](./doc/01_docker-runner.md#crear-imagen-docker-para-el-runner)
+   * [Github Runners con Docker](./doc/01_docker-runner.md#github-runners-con-docker)
+      * [Crear DockerFile y construción de la imágen.](./doc/01_docker-runner.md#crear-dockerfile-y-construción-de-la-imágen)
+         * [Instalación Utilidades](./doc/01_docker-runner.md#instalación-utilidades)
       * [Probar Docker Runners](./doc/01_docker-runner.md#probar-docker-runners)
          * [Arrancar runner con cliente docker instalado.](./doc/01_docker-runner.md#arrancar-runner-con-cliente-docker-instalado)
 
@@ -48,6 +49,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Sat Jan 16 10:31:51 CET 2021 -->
+<!-- Added by: jmmirand, at: Sat Jan 16 16:39:05 CET 2021 -->
 
 <!--te-->
