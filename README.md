@@ -18,8 +18,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Tabla de Contenidos](#tabla-de-contenidos)
-
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!--ts-->
 
