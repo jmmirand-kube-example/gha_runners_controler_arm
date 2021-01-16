@@ -5,7 +5,9 @@ GitHub Actions permite crear flujos de trabajo (workflows) que se pueden utiliza
 
 Los flujos de trabajo tienen que contener al menos un job. Estos incluyen una serie de pasos que ejecutan tareas individuales que pueden ser acciones o comandos. Un flujo de trabajo puede comenzar por distintos eventos que suceden dentro de GitHub, como un push al repositorio o un pull request.
 
-Los jobs se ejecutan en un VM o Host que llevan instalado un agente llamado runners, Github proporciona integrada en su solución un cojunto de Runners dependiendo de la VM o Host sea Windows, MacOs y Linux.
+Los jobs se ejecutan en un VM o Host que llevan instalado un agente llamado runners. Github proporciona integrada en su solución un conjunto de Runners dependiendo de la VM o Host sea Windows, MacOs y Linux.
+También existe la posibilidad de ejecutar en nuestras VMS, Hosts, Rasapberrys, PCs los pasos de los jobs
+y github los llama [Runner Self Hosted](https://docs.github.com/es/free-pro-team@latest/actions/hosting-your-own-runners)
 
 En este artículo se estudia como sacar provecho a nuestras Raspberrys instalando runners para ser usados
 desde github actions. Repasaremos la documentación oficial, iniciativas y artículos públicos que nos ayudarán a entender como funciona.
@@ -22,8 +24,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 <!--ts-->
 
 
-
-   * [Ejecutores auto hospedados.](./doc/00_ejecutores-auto-hospedados.md#ejecutores-auto-hospedados)
 
    * [Docker Github Runners](./doc/01_docker-runner.md#docker-github-runners)
       * [Crear Imagen Docker para el Runner](./doc/01_docker-runner.md#crear-imagen-docker-para-el-runner)
@@ -48,6 +48,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Sat Jan 16 10:14:49 CET 2021 -->
+<!-- Added by: jmmirand, at: Sat Jan 16 10:31:51 CET 2021 -->
 
 <!--te-->

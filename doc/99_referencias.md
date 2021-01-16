@@ -8,4 +8,5 @@
 
 # Referencias
 
+  * [Runner Self Hosted](https://docs.github.com/es/free-pro-team@latest/actions/hosting-your-own-runners)
   * [Alojar tus propios corredores](https://docs.github.com/es/free-pro-team@latest/actions/hosting-your-own-runners)
