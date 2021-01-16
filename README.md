@@ -9,7 +9,7 @@ Los jobs se ejecutan en un VM o Host que llevan instalado un agente llamado runn
 También existe la posibilidad de ejecutar en nuestras VMS, Hosts, Rasapberrys, PCs los pasos de los jobs
 y github los llama [Runner Self Hosted](https://docs.github.com/es/free-pro-team@latest/actions/hosting-your-own-runners)
 
-En este artículo se estudia como sacar provecho a nuestras Raspberrys instalando runners para ser usados
+En este artículo se estudia como sacar provecho a nuestras Raspberrys instalando runners para ser usado
 desde github actions. Repasaremos la documentación oficial, iniciativas y artículos públicos que nos ayudarán a entender como funciona.
 
 
@@ -49,6 +49,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Sat Jan 16 16:39:05 CET 2021 -->
+<!-- Added by: jmmirand, at: Sat Jan 16 16:53:03 CET 2021 -->
 
 <!--te-->

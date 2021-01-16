@@ -246,7 +246,7 @@ jobs:
 ```
 
 
-## Extender funcionalidad de los Runners
+### Extender funcionalidad de los Runners
 
 El siguiente paso es hacer crecer la imagen del runner para poder ejecutar
 cualquier tipo de acción que estemos buscando realizar.
@@ -255,7 +255,7 @@ Además hay que dar capacidad de ejecución de Docker dentro del Runner, la raz�
 es un tipo de acción básica de Github Actions.
 
 
-### Intalar Docker Deamon y Docker Client
+### Instalar Docker Deamon y Docker Client
 
 Para usar docker necesitamos tener un servidor (dockerd) y un cliente. Lo ideal
 sería que todo a su vez se ejecutara dentro del contenedor del Runner. Esto
