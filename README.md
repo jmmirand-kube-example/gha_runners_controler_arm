@@ -1,4 +1,6 @@
 
+# Integración entre Github Actions y Rasberrys
+
 GitHub Actions permite crear flujos de trabajo (workflows) que se pueden utilizar para compilar, probar y desplegar código, dando la posibilidad de crear flujos de integración y despliegue continuo dentro del propio repositorio de git.
 
 Los flujos de trabajo tienen que contener al menos un job. Estos incluyen una serie de pasos que ejecutan tareas individuales que pueden ser acciones o comandos. Un flujo de trabajo puede comenzar por distintos eventos que suceden dentro de GitHub, como un push al repositorio o un pull request.
@@ -20,6 +22,8 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!--ts-->
+
+
 
    * [Ejecutores auto hospedados.](./doc/00_ejecutores-auto-hospedados.md#ejecutores-auto-hospedados)
 
@@ -46,7 +50,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: date +%d-%m-%Y-->
-
+<!-- Added by: jmmirand, at: Sat Jan 16 10:14:49 CET 2021 -->
 
 <!--te-->
