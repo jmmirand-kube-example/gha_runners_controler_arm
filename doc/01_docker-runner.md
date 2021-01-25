@@ -9,8 +9,8 @@
     - [Instalación Docker Deamon](#instalaci%C3%B3n-docker-deamon)
     - [Instalación del agente github](#instalaci%C3%B3n-del-agente-github)
     - [Copiar ENTRYPOINT](#copiar-entrypoint)
-  - [Build de la imagen Docker](#build-de-la-imagen-docker)
   - [Start.sh entrypoint arranque Docker](#startsh-entrypoint-arranque-docker)
+  - [Build imagen Docker](#build-imagen-docker)
   - [Probar Docker Runners](#probar-docker-runners)
     - [Arrancar runner con cliente docker instalado.](#arrancar-runner-con-cliente-docker-instalado)
 
@@ -99,32 +99,33 @@ ENTRYPOINT ["./start.sh"]
 
 ```
 
-## Build de la imagen Docker
-
-Para la construcción usamos como argumento la versión que quiero instalar.
-
-``` bash
-$ docker build -t jmmirand/gha-docker-self-hosted --build-arg RUNNER_VERSION=2.274.2 .
-```
-
 ## Start.sh entrypoint arranque Docker
 
+El fichero de arranque tiene como propósito registrar el agente en la organización GitHub a
+la que dará servicio el runner.
 
-Fichero arranque.
+ * Recibe como parámetros.
+   * Nombre de la organización
+   * Access Token con permisos en la organización que queremos registrar.
+   * Etiquetas con las que se registre en la organización.
+   * Nombre del agente con el que arranca.
+
+ * Con el access-token consigue un token de registro, que tiene una validez temporal.
 
 ```
-#!/bin/bash
-
-ORGANIZATION=$ORGANIZATION
-ACCESS_TOKEN=$ACCESS_TOKEN
-LABELS=$LABELS
-
 REG_TOKEN=$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.github.com/orgs/${ORGANIZATION}/actions/runners/registration-token | jq .token --raw-output)
+```
 
-cd /home/docker/actions-runner
+ * Arrancar el agente.
 
-./config.sh --url https://github.com/${ORGANIZATION} --token ${REG_TOKEN}  --labels ${LABELS}
+```
+./config.sh --url https://github.com/${ORGANIZATION} --token ${REG_TOKEN}  --labels ${LABELS} --name ${NAME}
 
+```
+
+ * En caso de fallo o parada del agente, des-registramos el agente de la organización
+
+```
 cleanup() {
     echo "Removing runner..."
     ./config.sh remove --unattended --token ${REG_TOKEN}
@@ -132,27 +133,19 @@ cleanup() {
 
 trap 'cleanup; exit 130' INT
 trap 'cleanup; exit 143' TERM
-
-./run.sh & wait $!
-
 ```
 
-Se crea la imagen asegurando los parámetros obligatorios.
+## Build imagen Docker
 
-  * **RUNNER_VERSION**: Versión latest del agente de Github Runner
-[actions/runner/releases](https://github.com/actions/runner/releases).
+Para la construcción usamos como argumento la versión que quiero instalar.
 
-  * **ARQ_RUNNER** : Arquitectura del runner ejemplo linux-x86
-
-```
-$ docker build \
-    -t jmmirand/gha-docker-self-hosted \
-    --build-arg RUNNER_VERSION=2.274.2 \
-    --build-arg ARQ_RUNNER=linux-arm64 \
-    .
+``` bash
+$ docker build -t jmmirand/gha-docker-self-hosted:latest  .
+$ docker push
 ```
 
-## Arrancar Docker Runner y registrar el runner
+
+## Arrancar Github Runner
 
 Ejecutamos la imagen recién creada con los parámetros obligatorios:
 
