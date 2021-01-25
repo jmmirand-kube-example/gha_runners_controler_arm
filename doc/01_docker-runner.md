@@ -12,7 +12,6 @@
   - [Entrypoint start.sh](#entrypoint-startsh)
   - [Build imagen Docker](#build-imagen-docker)
   - [Probar Docker Runners](#probar-docker-runners)
-    - [Arrancar runner con cliente docker instalado.](#arrancar-runner-con-cliente-docker-instalado)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -154,6 +153,9 @@ y permisos de admin organization.
  * **ORGANIZATION** : Nombre de la organización
  * **LABELS** : Etiquetas que queremos que lleve el ejecutor.
 
+Esta forma de arrancar comunicamos el docker deamon que ejecuta dentro del contenedor
+con el deamon del HOST
+
 ```
 $ docker run \
   --detach \
@@ -237,95 +239,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           ls -lrt
-```
-
-
-### Extender funcionalidad de los Runners
-
-El siguiente paso es hacer crecer la imagen del runner para poder ejecutar
-cualquier tipo de acción que estemos buscando realizar.
-
-Además hay que dar capacidad de ejecución de Docker dentro del Runner, la razón,
-es un tipo de acción básica de Github Actions.
-
-
-### Instalar Docker Deamon y Docker Client
-
-Para usar docker necesitamos tener un servidor (dockerd) y un cliente. Lo ideal
-sería que todo a su vez se ejecutara dentro del contenedor del Runner. Esto
-me permitiría tener nuestro runner aislado del Host.
-
-Para esta funcionalidad usaremos dos contenedores conectados uno el demonio y
-otro el cliente.
-
-### Arrancer Docker in Docker (Server)
-
-Arrancamos el demonio usando :
-  * **DOCKER_TLS_CERTDIR=''** : La comunicación se raliza sin TLS
-  * **docker:dind** : Imagen oficial de docker in docker.
-
-``` bash
-$ docker network create some-network
-
-$ docker run --privileged --name some-docker -d  \
-   --network some-network --network-alias docker \
-   -e DOCKER_TLS_CERTDIR='' \
-   docker:dind
-
-```
-
-### Arrancar runner con cliente docker instalado.
-
-Debemos regenerar la imagen del contenedor añadiendo la instalación del cliente
-docker en el fichero Dockerfile
-
-```
-# Dockerfile
-.............................
-
-# make the script executable
-RUN chmod +x start.sh
-
-RUN curl -sSL https://get.docker.com | sh
-RUN usermod -aG docker docker
-
-............................
-
-
-```
-
-Arrancamos el runner.
-
-``` bash
-$ docker run   --detach   --privileged \
-    --env ORGANIZATION=jmmirand-kube-example   \
-    --env ACCESS_TOKEN=ea41fa221e7c8096cfbabb52cda5a9a8a3b6b036  \
-    --env LABELS=docker-runner   \
-    --name runner   \
-    --network some-network   \
-    -e DOCKER_HOST=tcp://some-docker:2375 \
-    jmmirand/gha-docker-self-hosted:latest
-```
-
-Comprobamos que docker está disponible.
-
-```bash
-
-$ docker exec -ti runner /bin/bash
-
-docker@15fae54fe9bc:/$ docker ps
-
-CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
-
-docker@15fae54fe9bc:/$ docker run --rm hello-world
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-256ab8fe8778: Pull complete
-Digest: sha256:1a523af650137b8accdaed439c17d684df61ee4d74feac151b5b337bd29e7eec
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-
 ```
 
 

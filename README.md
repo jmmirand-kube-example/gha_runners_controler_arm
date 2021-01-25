@@ -36,7 +36,12 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
       * [Entrypoint start.sh](./doc/01_docker-runner.md#entrypoint-startsh)
       * [Build imagen Docker](./doc/01_docker-runner.md#build-imagen-docker)
       * [Probar Docker Runners](./doc/01_docker-runner.md#probar-docker-runners)
-         * [Arrancar runner con cliente docker instalado.](./doc/01_docker-runner.md#arrancar-runner-con-cliente-docker-instalado)
+
+   * [Github runner con un docker in docker](./doc/02_runner_basado_dind.md#github-runner-con-un-docker-in-docker)
+      * [Instalar Docker Deamon y Docker Client](./doc/02_runner_basado_dind.md#instalar-docker-deamon-y-docker-client)
+         * [Arrancar runner con cliente docker instalado.](./doc/02_runner_basado_dind.md#arrancar-runner-con-cliente-docker-instalado)
+
+   * [Probar Docker Runners](./doc/10_test_docker_runner.md#probar-docker-runners)
 
    * [Referencias](./doc/99_referencias.md#referencias)
 
@@ -54,8 +59,10 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
          * [Borrar los Runners](./doc/docker-swarm-runners.md#borrar-los-runners)
       * [Swarm y Contenedores Privilegiados](./doc/docker-swarm-runners.md#swarm-y-contenedores-privilegiados)
 
+
+
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Mon Jan 25 20:05:36 CET 2021 -->
+<!-- Added by: jmmirand, at: Mon Jan 25 20:20:14 CET 2021 -->
 
 <!--te-->
