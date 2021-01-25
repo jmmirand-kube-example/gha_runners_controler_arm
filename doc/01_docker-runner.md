@@ -9,7 +9,7 @@
     - [Instalación Docker Deamon](#instalaci%C3%B3n-docker-deamon)
     - [Instalación del agente github](#instalaci%C3%B3n-del-agente-github)
     - [Copiar ENTRYPOINT](#copiar-entrypoint)
-  - [Start.sh entrypoint arranque Docker](#startsh-entrypoint-arranque-docker)
+  - [Entrypoint start.sh](#entrypoint-startsh)
   - [Build imagen Docker](#build-imagen-docker)
   - [Probar Docker Runners](#probar-docker-runners)
     - [Arrancar runner con cliente docker instalado.](#arrancar-runner-con-cliente-docker-instalado)
@@ -99,7 +99,7 @@ ENTRYPOINT ["./start.sh"]
 
 ```
 
-## Start.sh entrypoint arranque Docker
+## Entrypoint start.sh
 
 El fichero de arranque tiene como propósito registrar el agente en la organización GitHub a
 la que dará servicio el runner.
@@ -210,26 +210,22 @@ Enter name of work folder: [press Enter for _work]
 
 ## Probar Docker Runners
 
-Este runner ya está para probarse.
+
+Una vez arrancado el runner, ya puede ser usado desde cualquier repositorio que
+esté en la organización.
+
+Creamos un repo vacío y añadimos el workflows
+
 ``` yaml
 # This is a basic workflow to help you get started with Actions
 
 name: CI-docker-self-hosted
 
 # Controls when the action will run.
-on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+on: push
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  my_job_docker_slef_hosted:
+  my_job_docker_self_hosted:
     runs-on: docker-runner
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -237,6 +233,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a multi-line script
         run: |
+          docker version
           echo Add other actions to build,
           echo test, and deploy your project.
           ls -lrt

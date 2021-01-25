@@ -33,7 +33,7 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
          * [Instalación Docker Deamon](./doc/01_docker-runner.md#instalación-docker-deamon)
          * [Instalación del agente github](./doc/01_docker-runner.md#instalación-del-agente-github)
          * [Copiar ENTRYPOINT](./doc/01_docker-runner.md#copiar-entrypoint)
-      * [Start.sh entrypoint arranque Docker](./doc/01_docker-runner.md#startsh-entrypoint-arranque-docker)
+      * [Entrypoint start.sh](./doc/01_docker-runner.md#entrypoint-startsh)
       * [Build imagen Docker](./doc/01_docker-runner.md#build-imagen-docker)
       * [Probar Docker Runners](./doc/01_docker-runner.md#probar-docker-runners)
          * [Arrancar runner con cliente docker instalado.](./doc/01_docker-runner.md#arrancar-runner-con-cliente-docker-instalado)
@@ -56,6 +56,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Mon Jan 25 19:56:42 CET 2021 -->
+<!-- Added by: jmmirand, at: Mon Jan 25 20:05:36 CET 2021 -->
 
 <!--te-->
