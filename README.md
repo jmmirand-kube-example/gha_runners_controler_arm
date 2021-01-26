@@ -39,7 +39,8 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
    * [Github runner con un docker in docker](./doc/02_runner_basado_dind.md#github-runner-con-un-docker-in-docker)
       * [Instalar Docker Deamon y Docker Client](./doc/02_runner_basado_dind.md#instalar-docker-deamon-y-docker-client)
-         * [Arrancar runner con cliente docker instalado.](./doc/02_runner_basado_dind.md#arrancar-runner-con-cliente-docker-instalado)
+      * [Arrancar Runner &amp; Docker in Docker (Server)](./doc/02_runner_basado_dind.md#arrancar-runner--docker-in-docker-server)
+      * [Comprobar y chequear el Runner](./doc/02_runner_basado_dind.md#comprobar-y-chequear-el-runner)
 
    * [Probar Docker Runners](./doc/10_test_docker_runner.md#probar-docker-runners)
 
@@ -63,6 +64,6 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc)
 
-<!-- Added by: jmmirand, at: Mon Jan 25 20:20:14 CET 2021 -->
+<!-- Added by: jmmirand-->
 
 <!--te-->
