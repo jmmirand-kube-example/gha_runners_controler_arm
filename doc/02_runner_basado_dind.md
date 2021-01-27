@@ -16,7 +16,7 @@ Una vez instalado el runner que se maneja el demonio docker del HOST, mejoraremo
 la instalación haciendo que use el demonio docker que está en otro contenedor.
 
 Esto evita que el runner tenga acceso al HOST y salvaguardemos a este de algún
-uso indebido.
+uso indebido que pueda vulnerar la seguridad.
 
 Para esta funcionalidad usaremos dos contenedores conectados uno el dind y
 otro el propio runner, ambos en la misma red

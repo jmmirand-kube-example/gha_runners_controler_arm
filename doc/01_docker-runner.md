@@ -11,7 +11,6 @@
     - [Copiar ENTRYPOINT](#copiar-entrypoint)
   - [Entrypoint start.sh](#entrypoint-startsh)
   - [Build imagen Docker](#build-imagen-docker)
-  - [Probar Docker Runners](#probar-docker-runners)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -161,14 +160,11 @@ $ docker run \
   --detach \
   --privileged \
   --env ORGANIZATION=jmmirand-kube-example \
-  --env ACCESS_TOKEN=ea41fa221e7c8096cfbabb52cda5a9a8a3b6b036 \
+  --env ACCESS_TOKEN= xxxxxxxxxxxxxxxxxxxxxxx \
   --env LABELS=docker-runner \
-  --name runner \
-  --network some-network \
-  -e DOCKER_TLS_CERTDIR=/certs \
-  -v some-docker-certs-client:/certs/client:ro \
-  -e DOCKER_HOST=tcp://some-docker:2376 \
-  jmmirand/gha-docker-self-hosted:latest
+  --name runner-local \
+ --volume /var/run/docker.sock:/var/run/docker.sock \
+  jmmirand/gha-docker-self-hosted:local
 ```
 
 Comprobamos los logs para ver si se ha conectado correctamente.
@@ -209,38 +205,6 @@ Enter name of work folder: [press Enter for _work]
 
 2020-12-11 18:19:00Z: Listening for Jobs
 ```
-
-## Probar Docker Runners
-
-
-Una vez arrancado el runner, ya puede ser usado desde cualquier repositorio que
-esté en la organización.
-
-Creamos un repo vacío y añadimos el workflows
-
-``` yaml
-# This is a basic workflow to help you get started with Actions
-
-name: CI-docker-self-hosted
-
-# Controls when the action will run.
-on: push
-
-jobs:
-  my_job_docker_self_hosted:
-    runs-on: docker-runner
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-      # Runs a single command using the runners shell
-      - name: Run a multi-line script
-        run: |
-          docker version
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          ls -lrt
-```
-
 
 ### Referencias
 
