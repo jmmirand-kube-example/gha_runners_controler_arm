@@ -16,6 +16,13 @@ jobs:
         with:
           python-version: '3.9.1'
 
+      - name: Set up QEMU
+        id: qemu
+        uses: docker/setup-qemu-action@v1
+        with:
+          image: tonistiigi/binfmt:latest
+          platforms: all
+
       - uses: pre-commit/action@v2.0.0
         with:
           extra_args: --all-files
@@ -29,12 +36,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Print docker arquitectures
-        run: |
-          docker buildx create --name mybuilder
-          docker buildx use mybuilder
-          docker buildx inspect --bootstrap
-          docker buildx build --push --platform linux/amd64,linux/arm64 .
 
       - name: Build & Push to Docker Hub amd64/arm
         uses: docker/build-push-action@v2
