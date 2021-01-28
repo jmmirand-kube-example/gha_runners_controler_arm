@@ -23,7 +23,9 @@ jobs:
 
       - name: Print docker arquitectures
         run: |
-          docker buildx create --use
+          docker buildx create --name mybuilder
+          docker buildx use mybuilder
+          docker buildx inspect --bootstrap
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -36,6 +38,6 @@ jobs:
         with:
          # context: ./docker-runner
           file: ./Dockerfile
-          platforms: linux/amd64
+          platforms: linux/arm64
           tags: jmmirand/gha-docker-runner
           push: true
