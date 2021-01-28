@@ -1,6 +1,6 @@
 # base
 #FROM ubuntu:bionic
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 # set the github runner version
 ARG RUNNER_VERSION="2.263.0"
