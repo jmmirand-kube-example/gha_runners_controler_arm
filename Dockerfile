@@ -2,6 +2,8 @@
 #FROM ubuntu:bionic
 FROM ubuntu:18.04
 
+
+
 # update the base packages and add a non-sudo user
 # RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get update -y

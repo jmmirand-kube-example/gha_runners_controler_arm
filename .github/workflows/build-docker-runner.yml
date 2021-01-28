@@ -3,7 +3,8 @@ name: Build gha runner
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on: push
-
+env:
+  DOCKER_PLATFORMS: linux/amd64,linux/armhf,linux/arm64
 jobs:
   build_and_push:
     name: Push Docker image to multiple arch in registry
@@ -41,4 +42,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/arm64,linux/amd64
           tags: jmmirand/gha-docker-runner
-          push: true
+          push: false
