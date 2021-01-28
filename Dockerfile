@@ -15,6 +15,7 @@ ENV YQ_VERSION=2.4.1
 ENV YQ_BINARY=yq_linux_amd64
 
 # update the base packages and add a non-sudo user
+RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN useradd -m docker
