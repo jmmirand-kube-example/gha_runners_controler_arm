@@ -15,8 +15,8 @@ ENV YQ_VERSION=2.4.1
 ENV YQ_BINARY=yq_linux_amd64
 
 # update the base packages and add a non-sudo user
-RUN apt-get update -y 
-RUN apt-get upgrade -y 
+RUN apt-get update -y
+RUN apt-get upgrade -y
 RUN useradd -m docker
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
