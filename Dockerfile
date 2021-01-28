@@ -2,6 +2,12 @@
 #FROM ubuntu:bionic
 FROM ubuntu:18.04
 
+# update the base packages and add a non-sudo user
+# RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y
+RUN apt-get upgrade -y
+RUN useradd -m docker
+
 # set the github runner version
 ARG RUNNER_VERSION="2.263.0"
 ARG ARQ_RUNNER="linux-arm64"
@@ -14,11 +20,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV YQ_VERSION=2.4.1
 ENV YQ_BINARY=yq_linux_amd64
 
-# update the base packages and add a non-sudo user
-RUN rm -rf /var/lib/apt/lists/*
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN useradd -m docker
+
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
 # add additional packages as necessary
