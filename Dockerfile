@@ -2,16 +2,15 @@
 #FROM ubuntu:bionic
 FROM ubuntu:18.04
 
-
+RUN echo "TARGETPLATFORM = $TARGETPLATFORM"
 
 # update the base packages and add a non-sudo user
 # RUN rm -rf /var/lib/apt/lists/*
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN useradd -m docker
+RUN apt-get update -y \
+ && apt-get upgrade -y \
+ && useradd -m docker
 
 # set the github runner version
-ARG RUNNER_VERSION="2.263.0"
 ARG ARQ_RUNNER="linux-arm64"
 
 
