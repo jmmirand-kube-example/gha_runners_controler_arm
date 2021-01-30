@@ -4,9 +4,10 @@ FROM ubuntu:18.04
 
 ARG TARGETPLATFORM
 ARG TARGETARCH
+ARG RUNNER_VERSION
 
 RUN echo "TARGETPLATFORM:$TARGETPLATFORM, TARGETARCH=$TARGETARCH"
-
+RUN echo "RUNNER_VERSION:$RUNNER_VERSION"
 
 # update the base packages and add a non-sudo user
 # RUN rm -rf /var/lib/apt/lists/*

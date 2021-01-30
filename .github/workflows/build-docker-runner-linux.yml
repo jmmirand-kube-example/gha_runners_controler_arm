@@ -44,12 +44,12 @@ jobs:
 #          docker buildx build --push --platform linux/amd64,linux/arm64 .
       - name: Latest runner version
         shell: bash
-        run: echo "::set-output name=runner_version::2.10"
+        run: echo "::set-output name=runner_version::2.276.1"
         id: extract_branch_name
 
       - name: echo last version
         shell: bash
-        run: echo " => $runner_version"
+        run: env
 
 
       - name: Build & Push to Docker Hub amd64(x86)
@@ -60,3 +60,5 @@ jobs:
           platforms: linux/arm64,linux/amd64
           tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }}
           push: true
+          build-args: |
+            RUNNER_VERSION=${{ steps.extract_branch_name.outputs.runner_version }}
