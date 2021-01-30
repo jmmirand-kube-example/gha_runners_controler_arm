@@ -1,8 +1,23 @@
 name: Build gha runner
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '* 18 * * *'
+
+#  ┌───────────── minuto (0 - 59)
+#  │ ┌───────────── hora (0 - 23)
+#  │ │ ┌───────────── día del mes (1 - 31)
+#  │ │ │ ┌───────────── mes (1 - 12 o EN-DIC)
+#  │ │ │ │ ┌───────────── día de la semana (0 - 6 o DOM-SÁB)
+#  │ │ │ │ │
+#  │ │ │ │ │
+#  │ │ │ │ │
+#  * * * * *
+
 on: push
+
+
 jobs:
   build_and_push:
     name: Push Docker image to multiple arch in registry
