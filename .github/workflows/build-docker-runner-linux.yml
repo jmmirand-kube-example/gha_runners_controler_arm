@@ -47,6 +47,9 @@ jobs:
         run: echo "##[set-output name=runner_version;]$(echo ${curl  --silent "https://api.github.com/repos/actions/runner/releases/latest" | grep "tag_name" | sed -E 's/.*"v([^"]+)".*/\1/'})"
         id: extract_branch_name
 
+      - name: echo last version
+        shell: bash
+        run: echo "${{ steps.extract_branch_name.outputs.runner_version }}"
 
 
       - name: Build & Push to Docker Hub amd64(x86)
