@@ -35,6 +35,8 @@ RUN apt-get install -y curl jq build-essential libssl-dev libffi-dev python3 pyt
 
 # cd into the user directory, download and unzip the github actions runner
 RUN export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions/runner/releases/latest" | grep "tag_name" | sed -E 's/.*"v([^"]+)".*/\1/') \
+  && if [ $TARGETARCH = "arm64" ]; then export ARQ_RUNNER="linux-arm64";fi \
+  && if [ $TARGETARCH = "amd64" ]; then export ARQ_RUNNER="linux-x64";fi \
   && cd /home/docker && mkdir actions-runner && cd actions-runner \
   && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz \
   && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz
