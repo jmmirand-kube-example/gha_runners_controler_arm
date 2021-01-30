@@ -54,5 +54,4 @@ jobs:
           platforms: linux/arm64
           tags: jmmirand/gha-docker-runner-linux-arm64
           push: true
-          build-args: |
-            ARQ_RUNNER=linux-arm64
+          build-args: ARQ_RUNNER=linux-arm64
