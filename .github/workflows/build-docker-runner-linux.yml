@@ -49,7 +49,7 @@ jobs:
 
       - name: echo last version
         shell: bash
-        run: echo "${{ steps.extract_branch_name.outputs.runner_version }}"
+        run: echo " => $runner_version"
 
 
       - name: Build & Push to Docker Hub amd64(x86)
