@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    dind:
+      container_name: "dind"
+      image: "docker:dind"
+      privileged: true
+      environment:
+        - DOCKER_TLS_CERTDIR=
+    runner:
+      links:
+        - dind:dind
+      image: "jmmirand/gha-docker-runner:latest"
+      environment:
+        - ORGANIZATION=jmmirand-kube-example
+        - ACCESS_TOKEN=$ACCESS_TOKEN
+        - LABES=docker-compose-runner
+        - NAME=MyRunners
+        - DOCKER_HOST=tcp://dind:2375
