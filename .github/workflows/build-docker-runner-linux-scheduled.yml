@@ -3,7 +3,7 @@ name: Build gha runner
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '* 20 * * *'
+    - cron:  '0 20 * * *'
 
 #  ┌───────────── minuto (0 - 59)
 #  │ ┌───────────── hora (0 - 23)
@@ -19,7 +19,7 @@ on:
 
 jobs:
   build_and_push:
-    name: Push Docker image to multiple arch in registry
+    name: Build gha runner
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
