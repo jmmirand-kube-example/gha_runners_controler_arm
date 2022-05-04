@@ -12,7 +12,7 @@ jobs:
         uses: jmmirand/clean-workflows-logs-runs@main
         id: js-action
         with:
-         myToken: ${{ secrets.MY_TOKEN }}
+         myToken: ${{ secrets.MY_REPO_TOKEN }}
          num_runs: 12
 
  
