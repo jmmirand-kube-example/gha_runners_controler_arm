@@ -1,0 +1,20 @@
+name: Clean Runs and Logs Workflows
+ 
+on: [push]
+ 
+jobs:
+  run-javascript-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: JavaScript repeat action
+        uses: jmmirand/clean-workflows-logs-runs@main
+        id: js-action
+        with:
+         myToken: ${{ secrets.MY_TOKEN }}
+         num_runs: 12
+
+ 
+      - name: Print JavaScript output
+        run: echo ${{ steps.js-action.outputs.output_text }
