@@ -15,6 +15,3 @@ jobs:
          myToken: ${{ secrets.MY_REPO_TOKEN }}
          num_runs: 12
 
- 
-      - name: Print JavaScript output
-        run: echo ${{ steps.js-action.outputs.output_text }
