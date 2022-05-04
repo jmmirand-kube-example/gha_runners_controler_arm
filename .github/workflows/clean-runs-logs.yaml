@@ -1,16 +1,12 @@
 name: Clean Runs and Logs Workflows
- 
+
 on: [push]
- 
+
 jobs:
-  run-javascript-action:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-
-      - name: JavaScript repeat action
-        uses: jmmirand/clean-workflows-logs-runs@main
-        with:
-         myToken: ${{ secrets.MY_REPO_TOKEN }}
-         num_runs: 12
-
+  call-workflow-clean-workflows-logs:
+    needs: clean-workflows-logs
+    uses: jmmirand-work/shared-workflows/.github/workflows/clean-workflows-runs.yaml@main
+    with:
+      num_runs: 5
+    secrets:
+      myToken: ${{ secrets.GITHUB_TOKEN }}
