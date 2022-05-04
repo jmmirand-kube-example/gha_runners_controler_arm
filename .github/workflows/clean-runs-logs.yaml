@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   call-workflow-clean-workflows-logs:
-    needs: clean-workflows-logs
     uses: jmmirand-work/shared-workflows/.github/workflows/clean-workflows-runs.yaml@main
     with:
       num_runs: 5
