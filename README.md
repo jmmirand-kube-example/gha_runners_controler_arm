@@ -22,7 +22,7 @@ desde github actions. Repasaremos la documentación oficial, iniciativas y artí
 
 <!--ts-->
 
-
+.
 
    * [Github Runners con Docker](./doc/01_docker-runner.md#github-runners-con-docker)
       * [Crear DockerFile y construción de la imágen.](./doc/01_docker-runner.md#crear-dockerfile-y-construción-de-la-imágen)
