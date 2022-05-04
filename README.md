@@ -13,9 +13,6 @@ En este artículo se estudia como sacar provecho a nuestras Raspberrys instaland
 desde github actions. Repasaremos la documentación oficial, iniciativas y artículos públicos que nos ayudarán a entender como funciona.
 
 
-.
-
-
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
