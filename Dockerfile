@@ -4,10 +4,9 @@ FROM ubuntu:18.04
 
 ARG TARGETPLATFORM
 ARG TARGETARCH
-ARG RUNNER_VERSION
+# ARG RUNNER_VERSION
 
-RUN echo "TARGETPLATFORM:$TARGETPLATFORM, TARGETARCH=$TARGETARCH"
-RUN echo "RUNNER_VERSION:$RUNNER_VERSION"
+
 
 # update the base packages and add a non-sudo user
 # RUN rm -rf /var/lib/apt/lists/*
@@ -40,7 +39,9 @@ RUN export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions
   && if [ $TARGETARCH = "amd64" ]; then export ARQ_RUNNER="linux-x64";fi \
   && cd /home/docker && mkdir actions-runner && cd actions-runner \
   && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz \
-  && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz
+  && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz; \
+  echo "RUNNER_VERSION:$RUNNER_VERSION" \
+  echo "TARGETPLATFORM:$TARGETPLATFORM, TARGETARCH=$TARGETARCH" 
 
 
 # install some additional dependencies
