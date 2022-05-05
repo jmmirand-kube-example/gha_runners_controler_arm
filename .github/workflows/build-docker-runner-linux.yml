@@ -57,5 +57,5 @@ jobs:
           platforms: linux/arm64,linux/amd64
           tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }}
           push: true
-          build-args: |
-            RUNNER_VERSION=${{ steps.extract_branch_name.outputs.runner_version }}
+#          build-args: |
+#            RUNNER_VERSION=${{ steps.extract_branch_name.outputs.runner_version }}
