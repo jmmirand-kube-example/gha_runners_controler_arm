@@ -41,7 +41,7 @@ RUN export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions
   && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz \
   && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz; \
   echo "RUNNER_VERSION:$RUNNER_VERSION" \
-  echo "TARGETPLATFORM:$TARGETPLATFORM, TARGETARCH=$TARGETARCH" 
+  echo "TARGETPLATFORM:$TARGETPLATFORM, TARGETARCH=$TARGETARCH"
 
 
 # install some additional dependencies
