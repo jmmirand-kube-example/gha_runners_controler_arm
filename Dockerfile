@@ -4,8 +4,7 @@ FROM ubuntu:18.04
 
 ARG TARGETPLATFORM
 ARG TARGETARCH
-# ARG RUNNER_VERSION
-
+ARG ARQ_RUNNER="linux-arm64"
 
 
 # update the base packages and add a non-sudo user
@@ -15,16 +14,9 @@ RUN apt-get update -y \
  && useradd -m docker
 
 # set the github runner version
-ARG ARQ_RUNNER="linux-arm64"
-
-
-
 ENV DEBIAN_FRONTEND=noninteractive
-
-
 ENV YQ_VERSION=2.4.1
 ENV YQ_BINARY=yq_linux_amd64
-
 
 
 # install python and the packages the your code depends on along with jq so we can parse JSON
@@ -39,9 +31,10 @@ RUN export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions
   && if [ $TARGETARCH = "amd64" ]; then export ARQ_RUNNER="linux-x64";fi \
   && cd /home/docker && mkdir actions-runner && cd actions-runner \
   && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz \
-  && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz; \
-  echo "RUNNER_VERSION:$RUNNER_VERSION" \
-  echo "TARGETPLATFORM:$TARGETPLATFORM, TARGETARCH=$TARGETARCH"
+  && tar xzf ./actions-runner-${ARQ_RUNNER}-${RUNNER_VERSION}.tar.gz;
+
+RUN echo "RUNNER_VERSION:$RUNNER_VERSION" \
+    echo "TARGETPLATFORM:$TARGETPLATFORM, TARGETARCH=$TARGETARCH"
 
 
 # install some additional dependencies
