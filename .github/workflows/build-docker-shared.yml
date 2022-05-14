@@ -3,7 +3,7 @@ name: Shared Docker Build
 on: [push]
 
 jobs:
-
+  runs-on: ubuntu-latest
   build-docker-image:
     steps:  
       - name: Latest runner version
