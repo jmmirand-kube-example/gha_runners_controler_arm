@@ -21,7 +21,7 @@ jobs:
     needs: build-docker-prepare
     with:
  #     tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }}
-      tags: jmmirand/gha-docker-runner:${{ build-docker-prepare.outputs.runner_version }}
+      tags: jmmirand/gha-docker-runner:${{ needs.build-docker-prepare.outputs.runner_version }}
       build_options: RUNNER_VERSION=2.291.1
     secrets:
       docker_user:  ${{ secrets.DOCKER_USERNAME }}
