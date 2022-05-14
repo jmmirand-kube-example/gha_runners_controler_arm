@@ -3,9 +3,22 @@ name: Shared Docker Build
 on: [push]
 
 jobs:
+
   build-docker-image:
+
+  - name: Latest runner version
+    shell: bash
+    run: |
+      export RUNNER_VERSION=$(curl  --silent "https://api.github.com/repos/actions/runner/releases/latest" | grep "tag_name" | sed -E 's/.*"v([^"]+)".*/\1/')
+      echo "::set-output name=runner_version::${RUNNER_VERSION}"
+    id: extract_branch_name
+
+
+  - name: Build Image 
     uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
-    with:
-      num_runs: 5
+    with: 
+      tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }
+      build_options: RUNNER_VERSION=${{ steps.extract_branch_name.outputs.runner_version }}
     secrets:
-      myToken: ${{ secrets.GITHUB_TOKEN }}
+      docker_user:  ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
