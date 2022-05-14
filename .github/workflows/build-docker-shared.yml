@@ -20,9 +20,8 @@ jobs:
     uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
     needs: build-docker-prepare
     with:
- #     tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }}
       tags: jmmirand/gha-docker-runner:${{ needs.build-docker-prepare.outputs.runner_version }}
-      build_options: RUNNER_VERSION=2.291.1
+      build_options: RUNNER_VERSION=${{ needs.build-docker-prepare.outputs.runner_version }}
     secrets:
       docker_user:  ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
