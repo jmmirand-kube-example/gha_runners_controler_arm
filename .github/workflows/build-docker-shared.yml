@@ -7,7 +7,7 @@ jobs:
   build-docker-prepare:
     runs-on: ubuntu-latest
     outputs:
-      runner_version=${{ steps.extract_branch_name.outputs.runner_version }}
+      runner_version: ${{ steps.extract_branch_name.outputs.runner_version }}
     steps:
       - name: Latest runner version
         shell: bash
