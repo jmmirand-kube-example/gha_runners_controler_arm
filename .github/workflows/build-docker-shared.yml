@@ -17,7 +17,7 @@ jobs:
   build-docker-build:
     uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
     with: 
-      tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }
+      tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }}
       build_options: RUNNER_VERSION=${{ steps.extract_branch_name.outputs.runner_version }}
     secrets:
       docker_user:  ${{ secrets.DOCKER_USERNAME }}
