@@ -1,0 +1,11 @@
+name: Shared Docker Build
+
+on: [push]
+
+jobs:
+  build-docker-image:
+    uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
+    with:
+      num_runs: 5
+    secrets:
+      myToken: ${{ secrets.GITHUB_TOKEN }}
