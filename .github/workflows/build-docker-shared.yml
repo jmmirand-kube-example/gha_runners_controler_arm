@@ -6,7 +6,7 @@ jobs:
 
   build-docker-prepare:
     runs-on: ubuntu-latest
-    steps:  
+    steps:
       - name: Latest runner version
         shell: bash
         run: |
@@ -16,7 +16,7 @@ jobs:
 
   build-docker-build:
     uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
-    with: 
+    with:
  #     tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }}
       tags: jmmirand/gha-docker-runner:2.291.1
       build_options: RUNNER_VERSION=2.291.1
