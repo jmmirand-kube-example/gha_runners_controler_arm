@@ -18,7 +18,7 @@ jobs:
 
   build-docker-build:
     uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
-    need: build-docker-prepare
+    needs: build-docker-prepare
     with:
  #     tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }}
       tags: jmmirand/gha-docker-runner:${{ build-docker-prepare.outputs.runner_version }}
