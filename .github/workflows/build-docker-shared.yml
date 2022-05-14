@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
 
-  build-docker-image:
+  build-docker-prepare:
     runs-on: ubuntu-latest
     steps:  
       - name: Latest runner version
@@ -14,12 +14,11 @@ jobs:
           echo "::set-output name=runner_version::${RUNNER_VERSION}"
         id: extract_branch_name
 
-
-      - name: Build Image 
-        uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
-        with: 
-          tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }
-          build_options: RUNNER_VERSION=${{ steps.extract_branch_name.outputs.runner_version }}
-        secrets:
-          docker_user:  ${{ secrets.DOCKER_USERNAME }}
-          docker_password: ${{ secrets.DOCKER_PASSWORD }}
+  build-docker-build:
+    uses: jmmirand-work/shared-workflows/.github/workflows/build-docker-amd64.yaml@main
+    with: 
+      tags: jmmirand/gha-docker-runner:${{ steps.extract_branch_name.outputs.runner_version }
+      build_options: RUNNER_VERSION=${{ steps.extract_branch_name.outputs.runner_version }}
+    secrets:
+      docker_user:  ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
