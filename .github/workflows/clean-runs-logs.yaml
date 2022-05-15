@@ -8,4 +8,4 @@ jobs:
     with:
       num_runs: 5
     secrets:
-      myToken: ${{ secrets.GITHUB_TOKEN }}
+#      myToken: ${{ secrets.GITHUB_TOKEN }}
