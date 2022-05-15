@@ -7,5 +7,5 @@ jobs:
     uses: jmmirand-work/shared-workflows/.github/workflows/clean-workflows-runs.yaml@main
     with:
       num_runs: 5
-#    secrets:
-#      myToken: ${{ secrets.GITHUB_TOKEN }}
+    secrets:
+      myToken: ${{ secrets.GITHUB_TOKEN }}
